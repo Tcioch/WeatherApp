@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="804.0" prefWidth="950.0" styleClass="left-pill" stylesheets="@buttons.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pogoda.Controller">
+   <children>
+      <HBox prefHeight="35.0" prefWidth="200.0">
+         <children>
+            <AnchorPane minWidth="-Infinity" prefHeight="35.0" prefWidth="405.0">
+               <children>
+                  <TextField fx:id="autoCompleteTextField" prefHeight="32.0" prefWidth="400.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@buttons.css">
+               <children>
+                  <ToggleButton fx:id="temp1" mnemonicParsing="false" onAction="#changeChart" prefHeight="32.0" prefWidth="100.0" selected="true" styleClass="left-pill" text="Temperatura" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="weatherToggle1" />
+                     </toggleGroup>
+                  </ToggleButton>
+                  <ToggleButton fx:id="clouds1" layoutX="105.0" layoutY="5.0" mnemonicParsing="false" onAction="#changeChart" prefHeight="32.0" prefWidth="105.0" styleClass="center-pill" text="Zachmurzenie" toggleGroup="$weatherToggle1" />
+                  <ToggleButton fx:id="humidity1" layoutX="210.0" layoutY="5.0" mnemonicParsing="false" onAction="#changeChart" prefHeight="32.0" prefWidth="90.0" styleClass="center-pill" text="Wilgotność" toggleGroup="$weatherToggle1" />
+                  <ToggleButton fx:id="snow1" layoutX="485.0" layoutY="5.0" mnemonicParsing="false" onAction="#changeChart" prefHeight="32.0" styleClass="right-pill" text="Śnieg" toggleGroup="$weatherToggle1" />
+                  <ToggleButton fx:id="rain1" layoutX="425.0" layoutY="5.0" mnemonicParsing="false" onAction="#changeChart" prefHeight="32.0" prefWidth="60.0" styleClass="center-pill" text="Deszcz" toggleGroup="$weatherToggle1" />
+                  <ToggleButton fx:id="pressure1" layoutX="300.0" layoutY="5.0" mnemonicParsing="false" onAction="#changeChart" prefHeight="32.0" prefWidth="70.0" styleClass="center-pill" text="Ciśnienie" toggleGroup="$weatherToggle1" />
+                  <ToggleButton fx:id="wind1" layoutX="370.0" layoutY="5.0" mnemonicParsing="false" onAction="#changeChart" prefHeight="32.0" prefWidth="55.0" styleClass="center-pill" text="Wiatr" toggleGroup="$weatherToggle1" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <HBox prefHeight="250.0" prefWidth="200.0">
+         <opaqueInsets>
+            <Insets top="5.0" />
+         </opaqueInsets>
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ImageView fx:id="mainImageWeather" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="date1" alignment="BOTTOM_CENTER" prefHeight="49.0" prefWidth="200.0" textAlignment="CENTER" />
+                  <HBox prefHeight="88.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="temperature1" alignment="CENTER" contentDisplay="CENTER" prefHeight="49.0" prefWidth="77.0" textAlignment="CENTER" textFill="#ff9500">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="description1" alignment="CENTER" contentDisplay="CENTER" prefHeight="49.0" prefWidth="124.0" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Pane fx:id="chartPane" prefHeight="250.0" prefWidth="751.0" />
+         </children>
+      </HBox>
+      <HBox fx:id="hboxDays1" prefHeight="100.0" prefWidth="940.0" stylesheets="@weatherDayPane.css" visible="false">
+         <VBox.margin>
+            <Insets bottom="15.0" left="5.0" right="5.0" />
+         </VBox.margin>
+         <children>
+            <HBox maxWidth="235.0" prefHeight="100.0" prefWidth="235.0" styleClass="rounded">
+               <children>
+                  <ImageView fx:id="image1_day2" fitHeight="85.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin></ImageView>
+                  <VBox prefHeight="100.0" prefWidth="135.0">
+                     <children>
+                        <Label fx:id="date1_day2" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="135.0" text="Label" textAlignment="CENTER" />
+                        <Label fx:id="desc1_day2" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="135.0" text="Label" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="temp1_day2" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="28.0" prefHeight="40.0" prefWidth="135.0" text="Label">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" maxWidth="235.0" prefHeight="100.0" prefWidth="235.0" styleClass="rounded">
+               <children>
+                  <ImageView fx:id="image1_day3" fitHeight="90.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin></ImageView>
+                  <VBox prefHeight="100.0" prefWidth="135.0">
+                     <children>
+                        <Label fx:id="date1_day3" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="135.0" text="Label" textAlignment="CENTER" />
+                        <Label fx:id="desc1_day3" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="135.0" text="Label" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="temp1_day3" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="28.0" prefHeight="40.0" prefWidth="135.0" text="Label">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox layoutX="245.0" layoutY="10.0" maxWidth="235.0" prefHeight="100.0" prefWidth="235.0" styleClass="rounded">
+               <children>
+                  <ImageView fx:id="image1_day4" fitHeight="90.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin></ImageView>
+                  <VBox prefHeight="100.0" prefWidth="135.0">
+                     <children>
+                        <Label fx:id="date1_day4" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="135.0" text="Label" textAlignment="CENTER" />
+                        <Label fx:id="desc1_day4" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="135.0" text="Label" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="temp1_day4" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="28.0" prefHeight="40.0" prefWidth="135.0" text="Label">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox layoutX="480.0" layoutY="10.0" maxWidth="235.0" prefHeight="100.0" prefWidth="235.0" styleClass="rounded">
+               <children>
+                  <ImageView fx:id="image1_day5" fitHeight="90.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin></ImageView>
+                  <VBox prefHeight="100.0" prefWidth="135.0">
+                     <children>
+                        <Label fx:id="date1_day5" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="135.0" text="Label" textAlignment="CENTER" />
+                        <Label fx:id="desc1_day5" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="135.0" text="Label" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="temp1_day5" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="28.0" prefHeight="40.0" prefWidth="135.0" text="Label">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="200.0">
+         <children>
+            <AnchorPane minWidth="-Infinity" prefHeight="35.0" prefWidth="405.0">
+               <children>
+                  <TextField fx:id="autoCompleteTextField2" prefHeight="32.0" prefWidth="400.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@buttons.css">
+               <children>
+                  <ToggleButton fx:id="temp2" mnemonicParsing="false" onAction="#changeChart" prefHeight="32.0" prefWidth="100.0" selected="true" styleClass="left-pill" text="Temperatura" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="weatherToggle2" />
+                     </toggleGroup>
+                  </ToggleButton>
+                  <ToggleButton fx:id="clouds2" layoutX="105.0" layoutY="5.0" mnemonicParsing="false" onAction="#changeChart" prefHeight="32.0" prefWidth="105.0" styleClass="center-pill" text="Zachmurzenie" toggleGroup="$weatherToggle2" />
+                  <ToggleButton fx:id="humidity2" layoutX="210.0" layoutY="5.0" mnemonicParsing="false" onAction="#changeChart" prefHeight="32.0" prefWidth="90.0" styleClass="center-pill" text="Wilgotność" toggleGroup="$weatherToggle2" />
+                  <ToggleButton fx:id="snow2" layoutX="485.0" layoutY="5.0" mnemonicParsing="false" onAction="#changeChart" prefHeight="32.0" styleClass="right-pill" text="Śnieg" toggleGroup="$weatherToggle2" />
+                  <ToggleButton fx:id="rain2" layoutX="425.0" layoutY="5.0" mnemonicParsing="false" onAction="#changeChart" prefHeight="32.0" prefWidth="60.0" styleClass="center-pill" text="Deszcz" toggleGroup="$weatherToggle2" />
+                  <ToggleButton fx:id="pressure2" layoutX="300.0" layoutY="5.0" mnemonicParsing="false" onAction="#changeChart" prefHeight="32.0" prefWidth="70.0" styleClass="center-pill" text="Ciśnienie" toggleGroup="$weatherToggle2" />
+                  <ToggleButton fx:id="wind2" layoutX="370.0" layoutY="5.0" mnemonicParsing="false" onAction="#changeChart" prefHeight="32.0" prefWidth="55.0" styleClass="center-pill" text="Wiatr" toggleGroup="$weatherToggle2" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="47.0" prefHeight="250.0" prefWidth="200.0">
+         <opaqueInsets>
+            <Insets top="5.0" />
+         </opaqueInsets>
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ImageView fx:id="mainImageWeather2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="date2" alignment="BOTTOM_CENTER" prefHeight="49.0" prefWidth="200.0" textAlignment="CENTER" />
+                  <HBox prefHeight="88.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="temperature2" alignment="CENTER" contentDisplay="CENTER" prefHeight="49.0" prefWidth="77.0" textAlignment="CENTER" textFill="#ff9500">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="description2" alignment="CENTER" contentDisplay="CENTER" prefHeight="49.0" prefWidth="124.0" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Pane fx:id="chartPane2" prefHeight="250.0" prefWidth="751.0" />
+         </children>
+      </HBox>
+      <HBox fx:id="hboxDays2" layoutX="15.0" layoutY="297.0" prefHeight="100.0" prefWidth="940.0" stylesheets="@weatherDayPane.css" visible="false">
+         <children>
+            <HBox maxWidth="235.0" prefHeight="100.0" prefWidth="235.0" styleClass="rounded">
+               <children>
+                  <ImageView fx:id="image2_day2" fitHeight="85.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <VBox prefHeight="100.0" prefWidth="135.0">
+                     <children>
+                        <Label fx:id="date2_day2" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="135.0" text="Label" textAlignment="CENTER" />
+                        <Label fx:id="desc2_day2" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="135.0" text="Label" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="temp2_day2" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="28.0" prefHeight="40.0" prefWidth="135.0" text="Label">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" maxWidth="235.0" prefHeight="100.0" prefWidth="235.0" styleClass="rounded">
+               <children>
+                  <ImageView fx:id="image2_day3" fitHeight="90.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <VBox prefHeight="100.0" prefWidth="135.0">
+                     <children>
+                        <Label fx:id="date2_day3" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="135.0" text="Label" textAlignment="CENTER" />
+                        <Label fx:id="desc2_day3" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="135.0" text="Label" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="temp2_day3" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="28.0" prefHeight="40.0" prefWidth="135.0" text="Label">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox layoutX="245.0" layoutY="10.0" maxWidth="235.0" prefHeight="100.0" prefWidth="235.0" styleClass="rounded">
+               <children>
+                  <ImageView fx:id="image2_day4" fitHeight="90.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <VBox prefHeight="100.0" prefWidth="135.0">
+                     <children>
+                        <Label fx:id="date2_day4" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="135.0" text="Label" textAlignment="CENTER" />
+                        <Label fx:id="desc2_day4" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="135.0" text="Label" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="temp2_day4" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="28.0" prefHeight="40.0" prefWidth="135.0" text="Label">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox layoutX="480.0" layoutY="10.0" maxWidth="235.0" prefHeight="100.0" prefWidth="235.0" styleClass="rounded">
+               <children>
+                  <ImageView fx:id="image2_day5" fitHeight="90.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <VBox prefHeight="100.0" prefWidth="135.0">
+                     <children>
+                        <Label fx:id="date2_day5" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="135.0" text="Label" textAlignment="CENTER" />
+                        <Label fx:id="desc2_day5" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="135.0" text="Label" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="temp2_day5" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="28.0" prefHeight="40.0" prefWidth="135.0" text="Label">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+         <VBox.margin>
+            <Insets left="5.0" right="5.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

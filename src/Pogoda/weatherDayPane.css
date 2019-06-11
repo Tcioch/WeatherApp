@@ -1,0 +1,8 @@
+
+.rounded {
+    -fx-border-color: #ffcc66;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-padding: 2px;
+    -fx-border-insets: 2px;
+}
