@@ -8,8 +8,8 @@ import java.net.URLEncoder;
 public class ApiCaller {
 
     private JsonReader jsonReader = new JsonReader();
-    private final String API_KEY_WEATHER = "9081348638d11a874c848825f82cdef2";
-    private final String API_KEY_GOOGLE = "AIzaSyDFKXBwuMOPL6mvq59E08Ehoumn3UFAOe8";
+    private final String API_KEY_WEATHER = "xxx";
+    private final String API_KEY_GOOGLE = "xxx";
 
     public JSONObject getWeatherByCityName(String city)  throws IOException {
         // miasto
